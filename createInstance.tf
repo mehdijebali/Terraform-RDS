@@ -1,20 +1,20 @@
 
-resource "aws_key_pair" "levelup_key" {
-    key_name = "levelup_key"
+resource "aws_key_pair" "tf_ssh_key" {
+    key_name = var.KEY_NAME
     public_key = file(var.PATH_TO_PUBLIC_KEY)
 }
 
 #Create AWS Instance
 resource "aws_instance" "MyFirstInstnace" {
-  ami           = lookup(var.AMIS, var.AWS_REGION)
-  instance_type = "t2.micro"
-  availability_zone = "us-east-2a"
-  key_name      = aws_key_pair.levelup_key.key_name
+  ami           = var.AMI_ID
+  instance_type = var.INSTANCE_TYPE
+  availability_zone = var.AVAILABILITY_ZONE
+  key_name      = aws_key_pair.tf_ssh_key.key_name
   vpc_security_group_ids = [aws_security_group.allow-levelup-ssh.id]
   subnet_id = aws_subnet.levelupvpc-public-1.id
 
   tags = {
-    Name = "custom_instance"
+    Name = "RDS_Client"
   }
 }
 
