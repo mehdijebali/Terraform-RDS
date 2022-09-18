@@ -27,7 +27,7 @@ variable "KEY_NAME" {
 }
 
 variable "DB_ALLOCATED_STORAGE" {
-  default = 1
+  default = 10
 }
 
 variable "DB_ENGINE" {

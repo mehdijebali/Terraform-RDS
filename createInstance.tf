@@ -10,8 +10,8 @@ resource "aws_instance" "MyFirstInstnace" {
   instance_type = var.INSTANCE_TYPE
   availability_zone = var.AVAILABILITY_ZONE
   key_name      = aws_key_pair.tf_ssh_key.key_name
-  vpc_security_group_ids = [aws_security_group.allow-levelup-ssh.id]
-  subnet_id = aws_subnet.levelupvpc-public-1.id
+  vpc_security_group_ids = [aws_security_group.allow-ssh.id]
+  subnet_id = aws_subnet.public-subnet-A.id
 
   tags = {
     Name = "RDS_Client"
