@@ -46,13 +46,9 @@ variable "DB_IDENTIFIER" {
   default = "mariadb"
 }
 
-variable "DB_USERNAME" {
-  default = "root"
-}
+variable "DB_USERNAME" {}
 
-variable "DB_PASSWORD" {
-  default = "mariadb141"
-}
+variable "DB_PASSWORD" {}
 
 variable "DB_BACKUP_RETENTION_PERIOD" {
   default = 30
