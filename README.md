@@ -48,7 +48,7 @@ Once the provisionning is done, we can verify the created resources from the AWS
 #### DB Security Group
 ![](./Lab_Results/db_sg.png)
 #### DB Connection
-When you connect to database (step 9 in the Instructions section), you should find similar to the following
+When you connect to database (step 9 in the Instructions section), you should find similar result to the following
 ![](./Lab_Results/rds_connection.png)
 Therefore, one connection is triggered in AWS RDS Dashboard 
 ![](./Lab_Results/one_connection.png)
