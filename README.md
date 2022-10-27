@@ -1,8 +1,7 @@
 # RDS Provisioning with Terraform
 In this Lab, we will create AWS RDS resource and connect to it through an EC2 instance (Client side) regarding the following diagram:
-<p align="center">
-   [](./Lab_Results/RDS.png)
-</p>
+
+![](./Lab_Results/RDS.png)
 ## About RDS 
 Amazon RDS is one of the most popular services on the AWS Platform, and Amazon Aurora is the fastest growing service in AWS history! Not only is it based upon providing a transactionally safe, managed relational database; as a service, they have also adapted PostgreSQL and MySQL to create Aurora, a relational cloud native database.
 ## Instructions
