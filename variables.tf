@@ -53,3 +53,35 @@ variable "DB_PASSWORD" {}
 variable "DB_BACKUP_RETENTION_PERIOD" {
   default = 30
 }
+
+variable "MARIADB_SUBNETS_NAME" {
+  default = "mariadb-subnets"
+}
+
+variable "MARIADB_SUBNETS_DESCRIPTION" {
+  default = "Amazon RDS subnet group"
+}
+
+variable "MARIADB_PARAMETERS_NAME" {
+  default = "mariadb-parameters"
+}
+
+variable "MARIADB_PARAMETERS_FAMILY" {
+  default = "mariadb10.6"
+}
+
+variable "MARIADB_PARAMETERS_DESCRIPTION" {
+  default = "mariadb10.6"
+}
+
+variable "MAX_ALLOWED_PACKET" {
+  default = "16777216"
+}
+
+variable "RDS_STORAGE_TYPE" {
+  default = "gp2"
+}
+
+variable "RDS_NAME" {
+  default = "tf-mariadb"
+}
