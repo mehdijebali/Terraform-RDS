@@ -6,10 +6,6 @@ variable "AMI_ID" {
   default = "ami-0b0ea68c435eb488d"
 }
 
-variable "PATH_TO_PRIVATE_KEY" {
-  default = "levelup_key"
-}
-
 variable "PATH_TO_PUBLIC_KEY" {
   default = "levelup_key.pub"
 }
@@ -115,4 +111,16 @@ variable "SUBNET_NAMES" {
 variable "SUBNET_IPS" {
    type = list
    default = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24"]
+}
+
+variable "SG_NAME" {
+  default = "allow-levelup-ssh"
+}
+
+variable "SG_DESCRIPTION" {
+  default = "security group that allows ssh connection"
+}
+
+variable "INSTANCE_NAME" {
+  default = "custom_instance"
 }

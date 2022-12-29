@@ -42,3 +42,7 @@ resource "aws_instance" "MyFirstInstnace" {
   }
 
 }
+
+output "instance_sg_id" {
+  value= aws_security_group.allow-levelup-ssh.id
+}
