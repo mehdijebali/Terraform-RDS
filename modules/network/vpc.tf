@@ -101,10 +101,10 @@ output "public_subnet_A_id" {
   value = aws_subnet.public-subnet-A.id
 } 
 
-output "private_subnet_id" {
-  value = aws_subnet.private-subnet-B.id
+output "private_subnet_A_id" {
+  value = aws_subnet.private-subnet-A.id
 } 
 
-output "public_subnet_B_id" {
-  value = aws_subnet.public-subnet-B.id
+output "private_subnet_B_id" {
+  value = aws_subnet.private-subnet-B.id
 } 
