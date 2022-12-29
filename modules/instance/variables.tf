@@ -1,4 +1,5 @@
 variable "KEY_NAME" {}
+variable "AVAILABILITY_ZONE" {}
 variable "PATH_TO_PUBLIC_KEY" {}
 variable "SG_VPC_ID" {}
 variable "SG_NAME" {}
