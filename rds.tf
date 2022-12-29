@@ -32,7 +32,7 @@ resource "aws_db_instance" "tf-mariadb" {
   vpc_security_group_ids  = [aws_security_group.allow-mariadb.id]
   storage_type            = var.RDS_STORAGE_TYPE
   backup_retention_period = var.DB_BACKUP_RETENTION_PERIOD                                          # how long you’re going to keep your backups
-  availability_zone       = aws_subnet.private-subnet-A.availability_zone # prefered AZ
+  availability_zone       = var.AVAILABILITY_ZONE # prefered AZ
   skip_final_snapshot     = true                                        # skip final snapshot when doing terraform destroy
   
   tags = {
