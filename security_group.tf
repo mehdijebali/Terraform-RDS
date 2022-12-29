@@ -1,6 +1,6 @@
 #Security Group for levelupvpc
 resource "aws_security_group" "allow-ssh" {
-  vpc_id      = aws_vpc.demo-vpc.id
+  vpc_id      = module.network.vpc_id
   name        = "allow-ssh"
   description = "security group that allows ssh connection"
 
@@ -25,7 +25,7 @@ resource "aws_security_group" "allow-ssh" {
 
 #Security Group for MariaDB
 resource "aws_security_group" "allow-mariadb" {
-  vpc_id      = aws_vpc.demo-vpc.id
+  vpc_id      = module.network.vpc_id
   name        = "allow-mariadb"
   description = "security group for Maria DB"
 

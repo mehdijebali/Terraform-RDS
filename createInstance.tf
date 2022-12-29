@@ -8,10 +8,10 @@ resource "aws_key_pair" "tf_ssh_key" {
 resource "aws_instance" "MyFirstInstnace" {
   ami           = var.AMI_ID
   instance_type = var.INSTANCE_TYPE
-  availability_zone = var.AVAILABILITY_ZONE
+  availability_zone = var.AVAILABILITY_ZONES[0]
   key_name      = aws_key_pair.tf_ssh_key.key_name
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
-  subnet_id = aws_subnet.public-subnet-A.id
+  subnet_id = module.network.public_subnet_A_id
 
   tags = {
     Name = "RDS_Client"

@@ -2,7 +2,7 @@
 resource "aws_db_subnet_group" "mariadb-subnets" {
   name        = var.MARIADB_SUBNETS_NAME
   description = var.MARIADB_SUBNETS_DESCRIPTION
-  subnet_ids  = [aws_subnet.private-subnet-A.id, aws_subnet.private-subnet-B.id]
+  subnet_ids  = [module.network.private_subnet_A_id, module.network.private_subnet_B_id]
 }
 
 #RDS Parameters
@@ -32,7 +32,7 @@ resource "aws_db_instance" "tf-mariadb" {
   vpc_security_group_ids  = [aws_security_group.allow-mariadb.id]
   storage_type            = var.RDS_STORAGE_TYPE
   backup_retention_period = var.DB_BACKUP_RETENTION_PERIOD                                          # how long you’re going to keep your backups
-  availability_zone       = var.AVAILABILITY_ZONE # prefered AZ
+  availability_zone       = var.AVAILABILITY_ZONES[0] # prefered AZ
   skip_final_snapshot     = true                                        # skip final snapshot when doing terraform destroy
   
   tags = {
