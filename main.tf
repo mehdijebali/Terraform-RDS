@@ -18,6 +18,7 @@ module "instance" {
   source = "./modules/instance"
 
   KEY_NAME = var.KEY_NAME
+  AVAILABILITY_ZONE = var.AVAILABILITY_ZONES[0]
   PATH_TO_PUBLIC_KEY = var.PATH_TO_PUBLIC_KEY
   SG_VPC_ID = module.network.vpc_id
   SG_NAME = var.SG_NAME
