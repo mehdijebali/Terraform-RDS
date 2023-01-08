@@ -2,6 +2,16 @@ provider "aws" {
   region     = var.AWS_REGION
 }
 
+data "aws_ami" "packer_ami" {
+  most_recent      = true
+  owners           = ["self"]
+
+  filter {
+    name   = "name"
+    values = ["custom-mysql-client-*"]
+  }
+}
+
 module "network" {
     source      = "./modules/network"
 
@@ -23,7 +33,7 @@ module "instance" {
   SG_VPC_ID = module.network.vpc_id
   SG_NAME = var.SG_NAME
   SG_DESCRIPTION = var.SG_DESCRIPTION
-  AMI_ID = var.AMI_ID
+  AMI_ID = data.aws_ami.packer_ami.id
   INSTANCE_TYPE = var.INSTANCE_TYPE
   INSTANCE_SUBNET_ID = module.network.public_subnet_A_id
   INSTANCE_NAME = var.INSTANCE_NAME
