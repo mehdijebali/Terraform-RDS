@@ -1,3 +1,3 @@
 #!/bin/bash
-apt-get update
-apt-get install -y mysql-client
+sudo yum update
+sudo yum install -y mysql
