@@ -20,13 +20,13 @@
             },
             "instance_type": "t2.micro",
             "ssh_username": "ec2-user",
-            "ami_name": "custom-packer-{{timestamp}}"
+            "ami_name": "custom-mysql-client-{{timestamp}}"
         }
     ],
     "provisioners": [
         {
             "type": "shell",
-            "script": "./install_nginx.sh",
+            "script": "./install_mysql_client.sh",
             "execute_command": "{{ .Vars }} sudo -E sh '{{ .Path }}'",
             "pause_before": "10s"
         }
