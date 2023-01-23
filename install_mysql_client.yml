@@ -8,3 +8,9 @@
       name: '*'
       state: latest
       update_only: yes
+  
+  - name: Install mysql client
+    yum:
+      name: mysql
+      state: latest
+      update_cache: yes
