@@ -14,3 +14,9 @@
       name: mysql
       state: latest
       update_cache: yes
+  
+  - name: Check mysql version 
+    command: sudo mysql -V
+    register: mysql_version
+  - debug:
+      var: mysql_version.stdout
