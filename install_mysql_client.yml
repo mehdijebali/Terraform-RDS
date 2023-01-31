@@ -20,16 +20,3 @@
     register: mysql_version
   - debug:
       var: mysql_version.stdout
-
-  - name: Enable mysql client service at startup
-    service:
-      name: mysql
-      state: started
-      enabled: yes
-
-  - name: Check mysql service status
-    service_facts:
-    register: services_state
-  - debug:
-    #  var: services_state.ansible_facts
-      var: services_state.ansible_facts.services['mysql.service']
