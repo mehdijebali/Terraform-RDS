@@ -14,6 +14,8 @@
       name: mysql
       state: latest
       update_cache: yes
+    notify:
+      - Enable mysql client service at startup
   
   - name: Check mysql version 
     command: sudo mysql -V
