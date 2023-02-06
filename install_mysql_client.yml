@@ -14,19 +14,9 @@
       name: mysql
       state: latest
       update_cache: yes
-    notify:
-      - Enable mysql client service at startup
   
   - name: Check mysql version 
     command: sudo mysql -V
     register: mysql_version
   - debug:
       var: mysql_version.stdout
-  
-  handlers:
-  - name: Enable mysql client service at startup
-    service:
-      name: mysql
-      state: started
-      enabled: yes
-    when: mysql_version.changed == true
