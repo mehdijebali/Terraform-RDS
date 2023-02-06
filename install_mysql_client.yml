@@ -20,3 +20,11 @@
     register: mysql_version
   - debug:
       var: mysql_version.stdout
+  
+  handlers:
+  - name: Enable mysql client service at startup
+    service:
+      name: mysql
+      state: started
+      enabled: yes
+    when: mysql_version.changed == true
