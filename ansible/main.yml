@@ -1,22 +1,29 @@
 ---
 - hosts: all
   become: true
+
+  vars:
+    linux_distribution: centos
   
   tasks:
-  - name: Update all packages
+  - name: Update all packages (centos)
     yum:
       name: '*'
       state: latest
       update_only: yes
+    when: linux_distribution == "centos"
   
-  - name: Install mysql client
+  - name: Install mysql client (centos)
     yum:
       name: mysql
       state: latest
       update_cache: yes
+    when: linux_distribution == "centos"
   
-  - name: Check mysql version 
+  - name: Check mysql version (centos)
     command: sudo mysql -V
+    when: linux_distribution == "centos"
     register: mysql_version
   - debug:
       var: mysql_version.stdout
+    
