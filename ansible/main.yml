@@ -3,7 +3,7 @@
   become: true
 
   vars:
-    linux_distribution: centos
+    linux_distribution: ubuntu
   
   tasks:
   - name: Update all packages (centos)
@@ -26,6 +26,7 @@
     register: mysql_version
   - debug:
       var: mysql_version.stdout
+    when: linux_distribution == "centos"
 
   - name: Install mysql-client
     apt:
