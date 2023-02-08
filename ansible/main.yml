@@ -26,4 +26,11 @@
     register: mysql_version
   - debug:
       var: mysql_version.stdout
+
+  - name: Install mysql-client
+    apt:
+      name: mysql-client
+      state: latest
+      update_cache: true
+    when: linux_distribution == "ubuntu"
     
