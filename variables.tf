@@ -124,3 +124,7 @@ variable "SG_DESCRIPTION" {
 variable "INSTANCE_NAME" {
   default = "custom_instance"
 }
+
+variable "LD_NAME" {
+  default = "centos"
+}

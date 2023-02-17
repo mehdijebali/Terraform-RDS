@@ -28,7 +28,7 @@
       var: mysql_version.stdout
     when: linux_distribution == "centos"
 
-  - name: Install mysql-client
+  - name: Install mysql-client (ubuntu)
     apt:
       name: mysql-client
       state: latest
