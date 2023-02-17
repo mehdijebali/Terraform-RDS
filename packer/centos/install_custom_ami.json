@@ -20,7 +20,7 @@
             },
             "instance_type": "t2.micro",
             "ssh_username": "ec2-user",
-            "ami_name": "custom-mysql-client-{{timestamp}}"
+            "ami_name": "centos-mysql-client-pkr-{{timestamp}}"
         }
     ],
     "provisioners": [
