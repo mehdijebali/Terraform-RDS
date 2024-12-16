@@ -18,9 +18,11 @@
   command: sudo mysql -V
   when: linux_distribution == "centos"
   register: mysql_version
+
 - debug:
     var: mysql_version.stdout
   when: linux_distribution == "centos"
+
 - name: Install mysql-client (ubuntu)
   apt:
     name: mysql-client
