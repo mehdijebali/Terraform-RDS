@@ -1,6 +1,6 @@
 locals {
   RDS_NAME = "tf-mariadb"
-  SG_TAG = "allow-mariadb"
+  SG_TAG   = "allow-mariadb"
 }
 
 locals {
@@ -11,6 +11,6 @@ locals {
 
 locals {
   rds_tags = {
-    Name = local.RDS_NAME   
+    Name = local.RDS_NAME
   }
 }
