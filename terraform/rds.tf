@@ -35,9 +35,7 @@ resource "aws_db_instance" "tf-mariadb" {
   availability_zone       = var.AVAILABILITY_ZONES[0]      # prefered AZ
   skip_final_snapshot     = true                           # skip final snapshot when doing terraform destroy
 
-  tags = {
-    Name = "${var.RDS_NAME}"
-  }
+  tags = local.rds_tags
 }
 
 #Security Group for MariaDB
@@ -60,9 +58,7 @@ resource "aws_security_group" "allow-mariadb" {
     security_groups = [module.instance.instance_sg_id]
   }
 
-  tags = {
-    Name = "allow-mariadb"
-  }
+  tags = local.sg_tags
 }
 
 output "rds" {

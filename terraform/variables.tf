@@ -74,10 +74,6 @@ variable "RDS_STORAGE_TYPE" {
   default = "gp2"
 }
 
-variable "RDS_NAME" {
-  default = "tf-mariadb"
-}
-
 variable "VPC_NAME" {
   default = "demo-vpc"
 }
