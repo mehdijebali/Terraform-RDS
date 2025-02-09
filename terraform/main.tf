@@ -18,7 +18,7 @@ data "aws_ami" "packer_ami" {
 
   filter {
     name   = "name"
-    values = [var.LD_NAME == "centos" ? "centos-mysql-client-pkr-*" : "ubuntu-mysql-client-pkr-*"]
+    values = [local.ami-name]
   }
 }
 
