@@ -1,36 +1,36 @@
 ---
 # tasks file for mysqlclient
 - name: Update apt cache if needed
-  apt:
-    update_cache: yes
+  nsible.builtin.apt:
+    update_cache: true
     cache_valid_time: 86400
   when: linux_distribution == "ubuntu"
 
 - name: Update all packages (centos)
-  yum:
+  nsible.builtin.yum:
     name: '*'
     state: latest
-    update_only: yes
+    update_only: true
   when: linux_distribution == "centos"
 
 - name: Install mysql client (centos)
-  yum:
+  nsible.builtin.yum:
     name: mysql
     state: latest
-    update_cache: yes
+    update_cache: true
   when: linux_distribution == "centos"
 
 - name: Check mysql version (centos)
-  command: sudo mysql -V
+  nsible.builtin.command: sudo mysql -V
   when: linux_distribution == "centos"
   register: mysql_version
 
-- debug:
+- nsible.builtin.debug:
     var: mysql_version.stdout
   when: linux_distribution == "centos"
 
 - name: Install mysql-client (ubuntu)
-  apt:
+  nsible.builtin.apt:
     name: mysql-client
     state: latest
     update_cache: true
