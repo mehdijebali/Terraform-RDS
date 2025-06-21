@@ -1,15 +1,12 @@
 locals {
   RDS_NAME = "tf-mariadb"
   SG_TAG   = "allow-mariadb"
-}
+  ami-name = var.LD_NAME == "centos" ? "centos-mysql-client-pkr-*" : "ubuntu-mysql-client-pkr-*"
 
-locals {
   sg_tags = {
     Name = local.SG_TAG
   }
-}
 
-locals {
   rds_tags = {
     Name = local.RDS_NAME
   }

@@ -1,7 +1,10 @@
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 
 ## Providers
 
@@ -30,17 +33,15 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_AMI_ID"></a> [AMI\_ID](#input\_AMI\_ID) | n/a | `string` | `"ami-09d3b3274b6c5d4aa"` | no |
 | <a name="input_AVAILABILITY_ZONES"></a> [AVAILABILITY\_ZONES](#input\_AVAILABILITY\_ZONES) | n/a | `list(any)` | <pre>[<br/>  "us-east-1a",<br/>  "us-east-1b"<br/>]</pre> | no |
 | <a name="input_AWS_REGION"></a> [AWS\_REGION](#input\_AWS\_REGION) | n/a | `string` | `"us-east-1"` | no |
 | <a name="input_DB_ALLOCATED_STORAGE"></a> [DB\_ALLOCATED\_STORAGE](#input\_DB\_ALLOCATED\_STORAGE) | n/a | `number` | `10` | no |
 | <a name="input_DB_BACKUP_RETENTION_PERIOD"></a> [DB\_BACKUP\_RETENTION\_PERIOD](#input\_DB\_BACKUP\_RETENTION\_PERIOD) | n/a | `number` | `30` | no |
 | <a name="input_DB_ENGINE"></a> [DB\_ENGINE](#input\_DB\_ENGINE) | n/a | `string` | `"mariadb"` | no |
-| <a name="input_DB_ENGINE_VERSION"></a> [DB\_ENGINE\_VERSION](#input\_DB\_ENGINE\_VERSION) | n/a | `string` | `"10.4.8"` | no |
 | <a name="input_DB_IDENTIFIER"></a> [DB\_IDENTIFIER](#input\_DB\_IDENTIFIER) | n/a | `string` | `"mariadb"` | no |
 | <a name="input_DB_INSTANCE_CLASS"></a> [DB\_INSTANCE\_CLASS](#input\_DB\_INSTANCE\_CLASS) | n/a | `string` | `"db.t2.micro"` | no |
-| <a name="input_DB_PASSWORD"></a> [DB\_PASSWORD](#input\_DB\_PASSWORD) | n/a | `any` | n/a | yes |
-| <a name="input_DB_USERNAME"></a> [DB\_USERNAME](#input\_DB\_USERNAME) | n/a | `any` | n/a | yes |
+| <a name="input_DB_PASSWORD"></a> [DB\_PASSWORD](#input\_DB\_PASSWORD) | n/a | `string` | n/a | yes |
+| <a name="input_DB_USERNAME"></a> [DB\_USERNAME](#input\_DB\_USERNAME) | n/a | `string` | n/a | yes |
 | <a name="input_GW_NAME"></a> [GW\_NAME](#input\_GW\_NAME) | n/a | `string` | `"demo-gw"` | no |
 | <a name="input_INSTANCE_NAME"></a> [INSTANCE\_NAME](#input\_INSTANCE\_NAME) | n/a | `string` | `"custom_instance"` | no |
 | <a name="input_INSTANCE_TYPE"></a> [INSTANCE\_TYPE](#input\_INSTANCE\_TYPE) | n/a | `string` | `"t2.micro"` | no |
@@ -53,9 +54,7 @@ No requirements.
 | <a name="input_MARIADB_SUBNETS_NAME"></a> [MARIADB\_SUBNETS\_NAME](#input\_MARIADB\_SUBNETS\_NAME) | n/a | `string` | `"mariadb-subnets"` | no |
 | <a name="input_MAX_ALLOWED_PACKET"></a> [MAX\_ALLOWED\_PACKET](#input\_MAX\_ALLOWED\_PACKET) | n/a | `string` | `"16777216"` | no |
 | <a name="input_PATH_TO_PUBLIC_KEY"></a> [PATH\_TO\_PUBLIC\_KEY](#input\_PATH\_TO\_PUBLIC\_KEY) | n/a | `string` | `"levelup_key.pub"` | no |
-| <a name="input_PRIVATE_RT_NAME"></a> [PRIVATE\_RT\_NAME](#input\_PRIVATE\_RT\_NAME) | n/a | `string` | `"rt-private"` | no |
 | <a name="input_PUBLIC_RT_NAME"></a> [PUBLIC\_RT\_NAME](#input\_PUBLIC\_RT\_NAME) | n/a | `string` | `"demo-rt"` | no |
-| <a name="input_RDS_NAME"></a> [RDS\_NAME](#input\_RDS\_NAME) | n/a | `string` | `"tf-mariadb"` | no |
 | <a name="input_RDS_STORAGE_TYPE"></a> [RDS\_STORAGE\_TYPE](#input\_RDS\_STORAGE\_TYPE) | n/a | `string` | `"gp2"` | no |
 | <a name="input_SG_DESCRIPTION"></a> [SG\_DESCRIPTION](#input\_SG\_DESCRIPTION) | n/a | `string` | `"security group that allows ssh connection"` | no |
 | <a name="input_SG_NAME"></a> [SG\_NAME](#input\_SG\_NAME) | n/a | `string` | `"allow-levelup-ssh"` | no |
