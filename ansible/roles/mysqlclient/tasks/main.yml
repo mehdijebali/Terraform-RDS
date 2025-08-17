@@ -4,34 +4,34 @@
   ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 86400
-  when: linux_distribution == "ubuntu"
+  when: ansible_distribution == "Ubuntu"
 
-- name: Update all packages (centos)
+- name: Update all packages (Amazon)
   ansible.builtin.yum:
     name: '*'
     state: latest
     update_only: true
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install mysql client (centos)
+- name: Install mysql client (Amazon)
   ansible.builtin.yum:
     name: mysql
     state: latest
     update_cache: true
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Check mysql version (centos)
+- name: Check mysql version (Amazon)
   ansible.builtin.command: sudo mysql -V
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
   register: mysql_version
 
 - ansible.builtin.debug:
     var: mysql_version.stdout
-  when: linux_distribution == "centos"
+  when: ansible_distribution == "Amazon"
 
-- name: Install mysql-client (ubuntu)
+- name: Install mysql-client (Ubuntu)
   ansible.builtin.apt:
     name: mysql-client
     state: latest
     update_cache: true
-  when: linux_distribution == "ubuntu"
+  when: ansible_distribution == "Ubuntu"
