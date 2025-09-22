@@ -1,2 +1,7 @@
 ---
 # handlers file for mysqlclient
+- name: Get mysql version (Amazon)
+  ansible.builtin.command: sudo mysql -V
+  when: ansible_distribution == "Amazon"
+  register: mysqlclient_mysql_version
+  changed_when: false
