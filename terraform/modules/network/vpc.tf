@@ -1,7 +1,7 @@
 #Create AWS VPC
 resource "aws_vpc" "demo-vpc" {
-  cidr_block       = var.VPC_CIDR_BLOCK
-  instance_tenancy = "default"
+  cidr_block           = var.VPC_CIDR_BLOCK
+  instance_tenancy     = "default"
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
 
@@ -91,19 +91,19 @@ resource "aws_route_table_association" "public-B" {
 #Module Outputs
 output "vpc_id" {
   value = aws_vpc.demo-vpc.id
-} 
+}
 
 output "internet_gateway" {
   value = aws_internet_gateway.demo-gw
-} 
+}
 
 output "public_subnet_A_id" {
   value = aws_subnet.public-subnet-A.id
-} 
+}
 
 output "private_subnet_A_id" {
   value = aws_subnet.private-subnet-A.id
-} 
+}
 
 output "private_subnet_B_id" {
   value = aws_subnet.private-subnet-B.id
