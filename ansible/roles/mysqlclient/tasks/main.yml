@@ -14,7 +14,7 @@
 
 - name: Install mysql client (Amazon)
   ansible.builtin.dnf:
-    name: mysql
+    name: mariadb105
     update_cache: true
   when: ansible_distribution == "Amazon"
 
