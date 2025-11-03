@@ -7,31 +7,29 @@
   when: ansible_distribution == "Ubuntu"
 
 - name: Update all packages (Amazon)
-  ansible.builtin.yum:
+  ansible.builtin.dnf:
     name: '*'
-    state: latest
     update_only: true
   when: ansible_distribution == "Amazon"
 
 - name: Install mysql client (Amazon)
-  ansible.builtin.yum:
-    name: mysql
-    state: latest
+  ansible.builtin.dnf:
+    name: mariadb105
     update_cache: true
   when: ansible_distribution == "Amazon"
 
-- name: Check mysql version (Amazon)
-  ansible.builtin.command: sudo mysql -V
+- name: Check mysqlclient version
+  ansible.builtin.debug:
+    var: mysqlclient_mysql_version.stdout
   when: ansible_distribution == "Amazon"
-  register: mysql_version
+  notify:
+    - Get mysql version (Amazon)
 
-- ansible.builtin.debug:
-    var: mysql_version.stdout
-  when: ansible_distribution == "Amazon"
+- name: Run handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: Install mysql-client (Ubuntu)
   ansible.builtin.apt:
     name: mysql-client
-    state: latest
     update_cache: true
   when: ansible_distribution == "Ubuntu"

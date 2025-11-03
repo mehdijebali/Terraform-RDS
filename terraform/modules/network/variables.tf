@@ -4,12 +4,12 @@ variable "GW_NAME" {}
 variable "PUBLIC_RT_NAME" {}
 
 variable "AVAILABILITY_ZONES" {
-   type = list
+  type = list(any)
 }
 
 variable "SUBNET_NAMES" {
-   type = list
+  type = list(any)
 }
 variable "SUBNET_IPS" {
-   type = list
+  type = list(any)
 }
