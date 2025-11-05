@@ -4,28 +4,16 @@ variable "AWS_REGION" {
   default     = "us-east-1"
 }
 
-variable "PATH_TO_PUBLIC_KEY" {
-  type        = string
-  description = "Path to SSH public key"
-  default     = "levelup_key.pub"
-}
-
 variable "INSTANCE_TYPE" {
   type        = string
   description = "AWS Instance type"
   default     = "t2.micro"
 }
 
-variable "KEY_NAME" {
-  type        = string
-  description = "SSH key name"
-  default     = "tf-ssh-key"
-}
-
 variable "DB_ALLOCATED_STORAGE" {
   type        = number
   description = "Database Storage Size in Gb"
-  default     = 10
+  default     = 1
 }
 
 variable "DB_ENGINE" {
@@ -145,18 +133,6 @@ variable "SUBNET_IPS" {
   type        = list(any)
   description = "List of subnets IPs"
   default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24", "10.0.4.0/24"]
-}
-
-variable "SG_NAME" {
-  type        = string
-  description = "Security Group Name"
-  default     = "allow-levelup-ssh"
-}
-
-variable "SG_DESCRIPTION" {
-  type        = string
-  description = "Security Group Description"
-  default     = "security group that allows ssh connection"
 }
 
 variable "INSTANCE_NAME" {
