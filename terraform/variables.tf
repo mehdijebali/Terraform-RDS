@@ -13,7 +13,7 @@ variable "INSTANCE_TYPE" {
 variable "DB_ALLOCATED_STORAGE" {
   type        = number
   description = "Database Storage Size in Gb"
-  default     = 1
+  default     = 10
 }
 
 variable "DB_ENGINE" {
@@ -25,7 +25,7 @@ variable "DB_ENGINE" {
 variable "DB_INSTANCE_CLASS" {
   type        = string
   description = "Database instance class"
-  default     = "db.t2.micro"
+  default     = "db.t3.micro"
 }
 
 variable "DB_IDENTIFIER" {
@@ -72,13 +72,13 @@ variable "MARIADB_PARAMETERS_NAME" {
 variable "MARIADB_PARAMETERS_FAMILY" {
   type        = string
   description = "Database parameters family"
-  default     = "mariadb10.6"
+  default     = "mariadb11.4"
 }
 
 variable "MARIADB_PARAMETERS_DESCRIPTION" {
   type        = string
   description = "Database parameters description"
-  default     = "mariadb10.6"
+  default     = "mariadb11.4"
 }
 
 variable "MAX_ALLOWED_PACKET" {
