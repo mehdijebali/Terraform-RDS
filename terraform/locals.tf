@@ -1,7 +1,7 @@
 locals {
   RDS_NAME = "tf-mariadb"
   SG_TAG   = "allow-mariadb"
-  ami-name = var.LD_NAME == "centos" ? "centos-mysql-client-pkr-*" : "ubuntu-mysql-client-pkr-*"
+  ami-name = var.LD_NAME == "centos" ? "al2023-mysql-client-pkr-*" : "ubuntu-mysql-client-pkr-*"
   sg_tags = {
     Name = local.SG_TAG
   }

@@ -55,7 +55,7 @@ resource "aws_security_group" "allow-mariadb" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [module.instance.instance_sg_id]
+    security_groups = [module.instance.security_group_id]
   }
 
   tags = local.sg_tags
