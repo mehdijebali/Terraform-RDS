@@ -26,7 +26,7 @@ data "aws_ami" "packer_ami" {
 }
 
 module "network" {
-  source = "./modules/network"
+  source = "github.com/mehdijebali/terraform-modules//network?ref=v1.0.0"
 
   VPC_NAME           = var.VPC_NAME
   VPC_CIDR_BLOCK     = var.VPC_CIDR_BLOCK
@@ -37,13 +37,19 @@ module "network" {
   SUBNET_IPS         = var.SUBNET_IPS
 }
 
-module "instance" {
-  source = "./modules/instance"
+module "ssm-role" {
+  source = "github.com/mehdijebali/terraform-modules//ssm-role?ref=v1.0.0"
+}
 
-  AVAILABILITY_ZONE  = var.AVAILABILITY_ZONES[0]
-  SG_VPC_ID          = module.network.vpc_id
-  AMI_ID             = data.aws_ami.packer_ami.id
-  INSTANCE_TYPE      = var.INSTANCE_TYPE
-  INSTANCE_SUBNET_ID = module.network.public_subnet_A_id
-  INSTANCE_NAME      = var.INSTANCE_NAME
+module "instance" {
+  source = "github.com/mehdijebali/terraform-modules//instance?ref=v1.0.0"
+
+  SG_VPC_ID             = module.network.vpc_id
+  USER_DATA             = module.ssm-role.user_data
+  INSTANCE_PROFILE_NAME = module.ssm-role.instance_profile_name
+  AMI_ID                = data.aws_ami.packer_ami.id
+  INSTANCE_SUBNET_ID    = module.network.public_subnet_A_id
+  INSTANCE_TYPE         = var.INSTANCE_TYPE
+  INSTANCE_NAME         = var.INSTANCE_NAME
+  AVAILABILITY_ZONE     = var.AVAILABILITY_ZONES[0]
 }
