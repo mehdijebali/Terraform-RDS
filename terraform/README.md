@@ -16,8 +16,9 @@
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_instance"></a> [instance](#module\_instance) | ./modules/instance | n/a |
-| <a name="module_network"></a> [network](#module\_network) | ./modules/network | n/a |
+| <a name="module_instance"></a> [instance](#module\_instance) | github.com/mehdijebali/terraform-modules//instance | v1.0.0 |
+| <a name="module_network"></a> [network](#module\_network) | github.com/mehdijebali/terraform-modules//network | v1.0.0 |
+| <a name="module_ssm-role"></a> [ssm-role](#module\_ssm-role) | github.com/mehdijebali/terraform-modules//ssm-role | v1.0.0 |
 
 ## Resources
 
