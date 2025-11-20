@@ -26,7 +26,7 @@ data "aws_ami" "packer_ami" {
 }
 
 module "network" {
-  source = "github.com/mehdijebali/terraform-modules//network?ref=v1.0.0"
+  source = "github.com/mehdijebali/terraform-modules//network?ref=v1.1.0"
 
   VPC_NAME           = var.VPC_NAME
   VPC_CIDR_BLOCK     = var.VPC_CIDR_BLOCK
@@ -38,11 +38,11 @@ module "network" {
 }
 
 module "ssm-role" {
-  source = "github.com/mehdijebali/terraform-modules//ssm-role?ref=v1.0.0"
+  source = "github.com/mehdijebali/terraform-modules//ssm-role?ref=v1.1.0"
 }
 
 module "instance" {
-  source = "github.com/mehdijebali/terraform-modules//instance?ref=v1.0.0"
+  source = "github.com/mehdijebali/terraform-modules//instance?ref=v1.1.0"
 
   SG_VPC_ID             = module.network.vpc_id
   USER_DATA             = module.ssm-role.user_data
