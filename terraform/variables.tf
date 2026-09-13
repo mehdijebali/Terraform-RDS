@@ -42,7 +42,6 @@ variable "DB_USERNAME" {
 variable "DB_PASSWORD" {
   type        = string
   description = "Database user password"
-  sensitive   = true
   default     = "mariadbpassword"
 }
 
